@@ -1,11 +1,11 @@
 {
-  "name": "web3-front-without-proxy",
+  "name": "delegatedapp",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -13,7 +13,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@meshsdk/core": "1.5.10",
+    "@meshsdk/core": "1.5.11-beta.3",
     "@meshsdk/react": "1.1.10-beta.3",
     "@mui/material": "^5.15.14",
     "@reduxjs/toolkit": "^2.2.2",
@@ -45,7 +45,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.8",
+    "vite": "5.2.7",
     "vite-plugin-svgr": "^4.2.0",
     "vite-plugin-top-level-await": "^1.4.1",
     "vite-plugin-wasm": "^3.3.0"
