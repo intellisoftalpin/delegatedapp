@@ -1,0 +1,33 @@
+.AppMenu {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 200px;
+  min-width: 500px;
+  max-width: 500px;
+  padding: 20px;
+  background-color: var(--secondary-bg-color);
+  overflow-y: auto;
+  color: var(--inverted-bg-color);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--bg-color);
+}
+
+.wallets {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius);
+  gap: 10px;
+}
+
+.text {
+  color: var(--inverted-bg-color);
+}
