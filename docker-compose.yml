@@ -1,7 +1,7 @@
 version: "3"
 services:
   delegate-app:
-    container_name: delegateapp
+    container_name: delegatedapp
     build:
       context: .
       dockerfile: Dockerfile
