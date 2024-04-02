@@ -38,7 +38,7 @@ export const poolApi = baseApi.injectEndpoints({
         }),
         submitTransaction: build.mutation<string, Uint8Array>({
             query: (cbor) => ({
-                url: `http://relaydb.blackrocket.space:8090/api/submit/tx`,
+                url: `https://pool.blackrocket.space/api/submit/tx`,
                 method: 'POST',
                 body: cbor,
                 headers: { 'Content-Type': 'application/cbor' },
