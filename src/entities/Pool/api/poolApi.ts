@@ -42,6 +42,7 @@ export const poolApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: cbor,
                 headers: { 'Content-Type': 'application/cbor' },
+                invalidatesTags: ['Transaction'],
             }),
         }),
     }),

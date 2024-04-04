@@ -8,6 +8,7 @@ export const walletApi = baseApi.injectEndpoints({
                 url: `https://cardano-mainnet.blockfrost.io/api/v0//accounts/${stakeAddress}`,
                 method: 'GET',
                 headers: { project_id: BLOCKFROST_API_KEY },
+                providesTags: ['Transaction'],
             }),
         }),
     }),

@@ -20,10 +20,6 @@ export const Delegate = () => {
                 poolId={'pool1tx6e7gewsrcceejwpa69vrhlhay6862amaks095pmw9jxulwhvx'}
                 delegated={delegatedPoolId === 'pool1tx6e7gewsrcceejwpa69vrhlhay6862amaks095pmw9jxulwhvx'}
             />
-            <Pool
-                poolId={'pool1s0cfkzheywsftgwp0yz7sq4rt5gyf7t5kfwj5a269kpxvndjn6q'}
-                delegated={delegatedPoolId === 'pool1s0cfkzheywsftgwp0yz7sq4rt5gyf7t5kfwj5a269kpxvndjn6q'}
-            />
         </Stack>
     );
 };
