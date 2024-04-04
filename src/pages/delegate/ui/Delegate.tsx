@@ -1,8 +1,11 @@
 import { Stack } from '@mui/material';
 
 import { Pool } from '../../../entities/Pool';
+import { useGetWalletData } from '../../../entities/Wallet';
 
 export const Delegate = () => {
+    const { delegatedPoolId } = useGetWalletData();
+
     return (
         <Stack
             component="main"
@@ -13,9 +16,14 @@ export const Delegate = () => {
             height={'100vh'}
             sx={{ overflowY: 'scroll' }}
         >
-            <Pool poolId={'pool1tx6e7gewsrcceejwpa69vrhlhay6862amaks095pmw9jxulwhvx'} />
-            <Pool poolId={'pool1s0cfkzheywsftgwp0yz7sq4rt5gyf7t5kfwj5a269kpxvndjn6q'} />
-            <Pool poolId={'pool1nhls8e9swnyshldgjknku4npreax075nw0ltrkmrarh4w3skxt9'} />
+            <Pool
+                poolId={'pool1tx6e7gewsrcceejwpa69vrhlhay6862amaks095pmw9jxulwhvx'}
+                delegated={delegatedPoolId === 'pool1tx6e7gewsrcceejwpa69vrhlhay6862amaks095pmw9jxulwhvx'}
+            />
+            <Pool
+                poolId={'pool1s0cfkzheywsftgwp0yz7sq4rt5gyf7t5kfwj5a269kpxvndjn6q'}
+                delegated={delegatedPoolId === 'pool1s0cfkzheywsftgwp0yz7sq4rt5gyf7t5kfwj5a269kpxvndjn6q'}
+            />
         </Stack>
     );
 };

@@ -11,6 +11,7 @@ import { PoolLoadingSkeleton } from './PoolLoadingSkeleton/PoolLoadingSkeleton.t
 
 interface PoolProps {
     poolId: string;
+    delegated: boolean;
 }
 export const Pool = memo((props: PoolProps) => {
     const { connected } = useWallet();
@@ -26,7 +27,7 @@ export const Pool = memo((props: PoolProps) => {
                     <img src={extended?.info.url_png_icon_64x64} alt="pool" height="50" width="50" />
                 </Stack>
                 <Stack width="100%" spacing={1}>
-                    <Stack direction="row" justifyContent={'space-between'}>
+                    <Stack direction="row" justifyContent={'space-between'} alignItems={'center'}>
                         <Link
                             variant={'h6'}
                             href={metadata?.homepage || additional?.homepage}
@@ -35,7 +36,6 @@ export const Pool = memo((props: PoolProps) => {
                         >
                             [{metadata?.ticker || additional?.ticker}] {metadata?.name || additional?.name}
                         </Link>
-                        {/*<Typography>Links</Typography>*/}
                     </Stack>
                     <Link
                         href={`https://adastat.net/pools/${metadata?.pool_id}`}
@@ -73,9 +73,21 @@ export const Pool = memo((props: PoolProps) => {
                 </Stack>
             </Stack>
             {connected ? (
-                <Button variant="contained" size="large" onClick={delegatePool}>
-                    Delegate to pool
-                </Button>
+                <>
+                    {props.delegated ? (
+                        <Typography
+                            sx={{ color: 'var(--green-color)', background: 'var(--bg-color)' }}
+                            padding={1}
+                            textAlign={'center'}
+                        >
+                            You are already delegated to this pool
+                        </Typography>
+                    ) : (
+                        <Button variant="contained" size="large" onClick={delegatePool}>
+                            Delegate to pool
+                        </Button>
+                    )}
+                </>
             ) : (
                 <Button variant="contained" size="large" disabled>
                     You must connect your wallet

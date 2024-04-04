@@ -1,5 +1,5 @@
 import { useWallet } from '@meshsdk/react';
-import { Typography } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 
 import { Wallet } from 'entities/Wallet';
 
@@ -13,10 +13,14 @@ export const AppMenu = () => {
     return (
         <aside className={styles.AppMenu}>
             <header className={styles.header}>
-                <img src="vite.svg" alt="logo" width={24} height={24} />
-                <Typography variant="h5" className={styles.text}>
-                    Black Rocket Space
-                </Typography>
+                <Link href={'https://blackrocket.space/'} target={'_blank'} rel="noopener noreferrer">
+                    <Stack direction={'row'} alignItems={'center'} gap={2}>
+                        <img src="black-rocket-logo.png" alt="logo" width={40} height={40} />
+                        <Typography variant="h5" className={styles.text}>
+                            Black Rocket Space
+                        </Typography>
+                    </Stack>
+                </Link>
             </header>
             <div className={styles.wallets}>{connected ? <Wallet /> : <ConnectWallet />}</div>
         </aside>

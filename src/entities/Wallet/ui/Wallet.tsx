@@ -1,14 +1,13 @@
-import { useAddress, useLovelace, useNetwork, useRewardAddress, useWallet, useWalletList } from '@meshsdk/react';
-import { Button, Stack, Typography } from '@mui/material';
+import { useWallet, useWalletList } from '@meshsdk/react';
+import { Button, Link, Stack, Typography } from '@mui/material';
 import { useCallback } from 'react';
+
+import { useGetWalletData } from '../lib/hooks/useGetWalletData.tsx';
 
 export const Wallet = () => {
     const { name, disconnect } = useWallet();
     const wallets = useWalletList();
-    const address = useAddress(0);
-    const balance = useLovelace();
-    const network = useNetwork();
-    const stakeAddress = useRewardAddress(0);
+    const { balance, network, address, stakeAddress, delegatedPoolId } = useGetWalletData();
 
     const getWalletIcon = useCallback(() => {
         if (wallets.length > 0) {
@@ -52,6 +51,20 @@ export const Wallet = () => {
                     <Stack padding={2} sx={{ background: 'var(--bg-color)', borderRadius: 'var(--border-radius)' }}>
                         <Typography sx={{ wordWrap: 'break-word' }} variant={'body2'}>
                             {stakeAddress}
+                        </Typography>
+                    </Stack>
+                </Stack>
+                <Stack spacing={1}>
+                    <Typography>Delegated Pool id:</Typography>
+                    <Stack padding={2} sx={{ background: 'var(--bg-color)', borderRadius: 'var(--border-radius)' }}>
+                        <Typography sx={{ wordWrap: 'break-word' }} variant={'body2'}>
+                            <Link
+                                href={`https://adastat.net/pools/${delegatedPoolId}`}
+                                target={'_blank'}
+                                rel="noopener noreferrer"
+                            >
+                                {delegatedPoolId}
+                            </Link>
                         </Typography>
                     </Stack>
                 </Stack>
