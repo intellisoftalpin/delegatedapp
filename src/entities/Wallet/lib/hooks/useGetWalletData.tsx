@@ -27,6 +27,6 @@ export const useGetWalletData = (): UseGetWalletDataReturn => {
         balance,
         stakeAddress,
         network,
-        delegatedPoolId: specificData && specificData.pool_id,
+        delegatedPoolId: specificData && specificData.data.active_pool_bech32,
     };
 };

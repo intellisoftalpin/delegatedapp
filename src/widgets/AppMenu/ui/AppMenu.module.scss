@@ -1,11 +1,8 @@
 .AppMenu {
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 200px;
-  min-width: 500px;
-  max-width: 500px;
   padding: 20px;
   background-color: var(--secondary-bg-color);
   overflow-y: auto;

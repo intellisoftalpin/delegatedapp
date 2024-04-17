@@ -11,8 +11,16 @@ export const AppMenu = () => {
     const { connected } = useWallet();
 
     return (
-        <aside className={styles.AppMenu}>
-            <header className={styles.header}>
+        <Stack
+            component={'aside'}
+            className={styles.AppMenu}
+            sx={{
+                maxWidth: { lg: '500px', md: '400px' },
+                minWidth: { lg: '500px', md: '400px' },
+                display: { md: 'flex', xs: 'none' },
+            }}
+        >
+            <Stack component={'header'} className={styles.header}>
                 <Link href={'https://blackrocket.space/'} target={'_blank'} rel="noopener noreferrer">
                     <Stack direction={'row'} alignItems={'center'} gap={2}>
                         <img src="black-rocket-logo.png" alt="logo" width={40} height={40} />
@@ -21,8 +29,8 @@ export const AppMenu = () => {
                         </Typography>
                     </Stack>
                 </Link>
-            </header>
+            </Stack>
             <div className={styles.wallets}>{connected ? <Wallet /> : <ConnectWallet />}</div>
-        </aside>
+        </Stack>
     );
 };

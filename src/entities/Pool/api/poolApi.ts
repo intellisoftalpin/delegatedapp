@@ -1,38 +1,12 @@
 import { baseApi } from 'shared/api/baseApi';
-import { BLOCKFROST_API_KEY } from 'shared/constants/env';
 
-import {
-    PoolAdditionalInfo,
-    PoolExtendedMetadata,
-    SpecificPool,
-    StakePoolMetadata,
-} from '../model/types/PoolSchema.ts';
+import { SpecificPool } from '../model/types/PoolSchema.ts';
 
 export const poolApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        getSpecificStakePool: build.query<SpecificPool, { poolId: string }>({
-            query: ({ poolId }) => ({
-                url: `https://cardano-mainnet.blockfrost.io/api/v0//pools/${poolId}`,
-                method: 'GET',
-                headers: { project_id: BLOCKFROST_API_KEY },
-            }),
-        }),
-        getStakePoolMetadata: build.query<StakePoolMetadata, { poolId: string }>({
-            query: ({ poolId }) => ({
-                url: `https://cardano-mainnet.blockfrost.io/api/v0//pools/${poolId}/metadata`,
-                method: 'GET',
-                headers: { project_id: BLOCKFROST_API_KEY },
-            }),
-        }),
-        getPoolInfoMetadata: build.query<PoolAdditionalInfo, string | undefined>({
-            query: (url) => ({
-                url: `${url}`,
-                method: 'GET',
-            }),
-        }),
-        getPoolExtendedMetadata: build.query<PoolExtendedMetadata, string | undefined>({
-            query: (url) => ({
-                url: `${url}`,
+        getSpecificStakePool: build.query<{ data: SpecificPool }, string>({
+            query: (poolId) => ({
+                url: `https://api.adastat.net/rest/v1/pools/${poolId}.json`,
                 method: 'GET',
             }),
         }),

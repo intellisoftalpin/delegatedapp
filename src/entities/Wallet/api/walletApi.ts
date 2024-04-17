@@ -1,14 +1,13 @@
 import { baseApi } from 'shared/api/baseApi';
-import { BLOCKFROST_API_KEY } from 'shared/constants/env';
+
+import { AccountInfo } from '../model/types/WalletSchema.ts';
 
 export const walletApi = baseApi.injectEndpoints({
     endpoints: (build) => ({
-        getSpecificAccount: build.query<{ pool_id: string }, { stakeAddress: string }>({
+        getSpecificAccount: build.query<{ data: AccountInfo }, { stakeAddress: string }>({
             query: ({ stakeAddress }) => ({
-                url: `https://cardano-mainnet.blockfrost.io/api/v0//accounts/${stakeAddress}`,
+                url: `https://api.adastat.net/rest/v1/accounts/${stakeAddress}.json`,
                 method: 'GET',
-                headers: { project_id: BLOCKFROST_API_KEY },
-                providesTags: ['Transaction'],
             }),
         }),
     }),
