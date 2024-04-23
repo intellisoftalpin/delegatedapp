@@ -20,7 +20,7 @@ export const Pool = memo((props: PoolProps) => {
     if (loading) return <PoolLoadingSkeleton />;
 
     return (
-        <Stack className={styles.Pool} spacing={3}>
+        <Stack className={styles.Pool} spacing={3} width={'100%'} maxWidth={800}>
             <Stack direction="row" spacing={5} padding={2} borderBottom={'1px solid'}>
                 <Stack justifyContent="center">
                     <img src={pool?.extended_data.info.url_png_icon_64x64} alt="pool" height="50" width="50" />

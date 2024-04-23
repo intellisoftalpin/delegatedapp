@@ -2,7 +2,7 @@ import { Skeleton, Stack } from '@mui/material';
 
 export const PoolLoadingSkeleton = () => {
     return (
-        <Stack spacing={3} padding={2} width={'100%'} sx={{ background: 'var(--secondary-bg-color)' }}>
+        <Stack spacing={3} padding={2} width={'100%'} maxWidth={800} sx={{ background: 'var(--secondary-bg-color)' }}>
             <Stack direction={'row'} alignItems={'center'} spacing={2} padding={1}>
                 <Skeleton variant="circular" width={50} height={50} />
                 <Stack>
