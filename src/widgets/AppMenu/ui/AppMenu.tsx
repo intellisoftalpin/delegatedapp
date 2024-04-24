@@ -18,17 +18,19 @@ export const AppMenu = () => {
         setOpenMiniMenu((opened) => !opened);
     };
 
-    if (openedMiniMenu) return <MiniAppMenu toggleMenu={toggleMenu} opened={openedMiniMenu} />;
+    if (openedMiniMenu) return <MiniAppMenu toggleMenu={toggleMenu} />;
 
     return (
         <Stack
             component={'aside'}
             className={styles.AppMenu}
             sx={{
-                maxWidth: { lg: '500px', md: '400px' },
-                minWidth: { lg: '500px', md: '400px' },
-                display: { md: 'flex', xs: 'none' },
+                maxWidth: { lg: '500px', md: '400px', xs: '100%' },
+                minWidth: { lg: '500px', md: '400px', xs: '100%' },
+                display: { md: 'flex' },
+                position: { md: 'inherit', xs: 'absolute' },
             }}
+            zIndex={2}
         >
             <Stack component={'header'} direction={'row'} justifyContent={'space-between'}>
                 <Link href={'https://blackrocket.space/'} target={'_blank'} rel="noopener noreferrer">

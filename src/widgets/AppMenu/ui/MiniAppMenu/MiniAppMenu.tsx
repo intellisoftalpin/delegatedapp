@@ -10,7 +10,6 @@ export const MiniAppMenu = ({ toggleMenu }: MiniAppMenuProps) => {
             sx={{
                 background: 'var(--secondary-bg-color)',
                 color: 'var(--inverted-bg-color)',
-                display: { md: 'flex', xs: 'none' },
             }}
             alignItems={'center'}
             padding={2}
